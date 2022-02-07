@@ -40,11 +40,13 @@ router.start(App, '#app')
 
 ### 1、mixins
 
-[官网](https://cn.vuejs.org/v2/api/#mixins)
+[Vue官网文档](https://cn.vuejs.org/v2/api/#mixins)
 
 > * 混入必须是一个对象；`Array<Object>`
 > * 当使用混入时，相同的内容都会合并；
 > * 数据对象如果有相同的，则以被混入对象中data数据为准；
+
+栗子：
 
 混入实例：
 
@@ -114,5 +116,46 @@ router.start(App, '#app')
 
 月牙:30,男,混入的实例(say),被混入的实例(print)
 
-<em>混入实例的方法名前面加 $_</em>
+混入实例的方法名前面加  ***$_***
+
+### 2、path.resolver() （路径解析）
+
+[Node官网文档](http://nodejs.cn/api/path.html#pathresolvepaths)
+
+`path.resolve()`方法可以将多个路径片段解析为一个规范化的绝对路径；其处理方式类似于对这些路径片段逐一进行cd操作。
+
+栗子：
+
+```javascript
+path.resolve('/foo/bar', './baz') 
+// 输出结果为 (cd /foo/bar)(cd ./baz)
+'/foo/bar/baz' 
+path.resolve('/foo/bar', '/tmp/file/') 
+// 输出结果为 (cd /foo/bar)(cd /tmp/file/)
+'/tmp/file' 
+path.resolve('wwwroot', 'static_files/png/', '../gif/avatar.gif') 
+// 当前的工作路径是 /home/yue/node，则输出结果为 (cd wwwroot)(cd static_files/png/)(cd ../gif/avatar.gif)
+'/home/yue/node/wwwroot/static_files/gif/avatar.gif'
+```
+
+### 3、@click.stop与@click.prevent
+
+@click.stop 阻止事件冒泡
+
+@click.prevent 阻止事件的默认行为
+
+### 4、path-to-regexp（组件）
+
+```javascript
+// ? 不会玩
+pathToRegexp.compile(path)
+```
+
+### 5、aria-hidden="true"
+
+现代的辅助技术能够识别并朗读由 CSS 生成的内容和特定的 Unicode 字符。
+
+为了避免屏幕识读设备抓取非故意的和可能产生混淆的输出内容（尤其是当图标纯粹作为装饰用途时），我们为这些图标设置了 `aria-hidden=“true”` 属性。
+
+简而言之：让这个元素对浏览器隐藏。
 

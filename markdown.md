@@ -88,8 +88,6 @@ console.log("---");
 
 ![RUNOOB 图标](http://static.runoob.com/images/runoob-logo.png "RUNOOB")
 
-![阿离]( "阿离")
-
 <img src="http://static.runoob.com/images/runoob-logo.png" width="50%" height="50%">
 
 | 左对齐 | 右对齐 | 居中对齐 |
@@ -124,3 +122,4 @@ $$
 $$
 X = -1
 $$
+
