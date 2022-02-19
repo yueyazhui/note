@@ -93,6 +93,7 @@ router.start(App, '#app')
         age: 27
       }
     },
+    mixins: [mixin],
     mounted: function () {
       this.age += 2
       console.log(this.age) // 30
@@ -158,4 +159,22 @@ pathToRegexp.compile(path)
 为了避免屏幕识读设备抓取非故意的和可能产生混淆的输出内容（尤其是当图标纯粹作为装饰用途时），我们为这些图标设置了 `aria-hidden=“true”` 属性。
 
 简而言之：让这个元素对浏览器隐藏。
+
+### 6、v-bind="$attrs" v-on="$listeners"
+
+[vue中使用v-bind="$attrs"和v-on="$listeners"进行多层组件监听](https://www.cnblogs.com/jin-zhe/p/13099416.html)
+
+### 7、require.context()
+
+[require.context(‘./svg‘, false, /\.svg$/)](https://blog.csdn.net/dangpugui/article/details/113863727)
+
+### 8、fuse（组件）
+
+[fuse官网](https://fusejs.io/)
+
+### 9、this.$nextTick()
+
+https://zhuanlan.zhihu.com/p/211260473
+
+https://blog.csdn.net/a654540233/article/details/107245152/
 
