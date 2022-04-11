@@ -178,3 +178,13 @@ https://zhuanlan.zhihu.com/p/211260473
 
 https://blog.csdn.net/a654540233/article/details/107245152/
 
+### 10、Router
+
+import与require的区别
+
+https://blog.csdn.net/qq_31915745/article/details/107713759
+
+'@/views/'不能放在数据库里
+
+https://www.cnblogs.com/hao-hui/p/15732137.html
+

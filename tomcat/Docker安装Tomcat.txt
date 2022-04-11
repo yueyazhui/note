@@ -1,0 +1,18 @@
+### Docker安装Tomcat
+
+mkdir /usr/local/docker/tomcat/tomcat8/webapps -p
+mkdir /usr/local/docker/tomcat/tomcat8/logs -p
+mkdir /usr/local/docker/tomcat/tomcat8/conf -p
+
+cd /usr/local/docker/tomcat/tomcat8/conf
+
+把server.xml拷贝进来
+
+docker run -d --name tomcat8 -p 8080:8080 -v /usr/local/docker/tomcat/tomcat8/webapps:/usr/local/tomcat/webapps -v /usr/local/docker/tomcat/tomcat8/logs:/usr/local/tomcat/logs -v /usr/local/docker/tomcat/tomcat8/conf/server.xml:/usr/local/tomcat/conf/server.xml tomcat:8
+
+docker exec -it tomcat8 /bin/bash
+mv webapps.dist/* webapps
+rm -rf webapps.dist/
+ls -l webapps
+
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
