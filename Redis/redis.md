@@ -9,3 +9,9 @@ https://blog.csdn.net/qq_39391192/article/details/81410647
 ### docker run
 
 docker run -p 6379:6379 --name myredis -v /usr/local/docker/redis/redis.conf:/etc/redis/redis.conf -v /usr/local/docker/redis/data:/data -d redis redis-server /etc/redis/redis.conf --appendonly yes
+
+
+### 修改密码
+
+requirepass 123456
+

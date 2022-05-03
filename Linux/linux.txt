@@ -1,0 +1,3 @@
+linux
+查看内存大小：cat /proc/meminfo |grep MemTotal
+查看硬盘大小：fdisk -l |grep Disk

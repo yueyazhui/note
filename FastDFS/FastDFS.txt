@@ -1,0 +1,6 @@
+参考：https://mp.weixin.qq.com/s/onZmdgi9kZw0JdAtrNYmow
+
+通过端口号查看进程号
+netstat -ntulp |grep 80
+通过进程号查看端口号
+netstat -anop | grep 19224
