@@ -1,0 +1,31 @@
+1、创建日志文件
+touch consoleMsgVhr.log
+2、部署
+nohup java -jar vhr-web-0.0.1-SNAPSHOT.war  > consoleMsgVhr.log 2>&1 &
+0 标准输入（键盘）
+1 标准输出（用户终端控制台）
+2 标准错误（错误信息输出）
+
+查看项目运行日志
+tail -f consoleMsgVhr.log | grep --line-buffered getAllEmployeeByPage
+实时跟踪日志，这里是只要getAllEmployeeByPage这个方法被运行，就会将它的日志打印出来，用于跟踪特定的日志运行；
+--line-buffered 是一行的缓冲区，只要这一行的缓冲区满了就会打印出来，所以可以用于实时监控日志；
+
+tail -f -n 500 consoleMsgVhr.log
+打印最后500行日志，并且持续跟踪日志；
+
+tail -f -n 500 consoleMsgVhr.log | more
+分页查看最后500行日志；
+
+查看nohub.out日志文件
+tail -f nohup.out
+实时查看nohub.out文件内容；
+
+tail -f nohup.out | grep "关键字"
+根据关键字查看
+
+tail -n 500 nohup.out
+输出文件最后500行
+
+tail -n 500 nohup.out | grep "关键字"
+输出文件最后500行，含关键字

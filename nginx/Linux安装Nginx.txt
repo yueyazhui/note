@@ -1,0 +1,14 @@
+wget http://nginx.org/download/nginx-1.17.0.tar.gz
+
+yum -y install pcre-devel
+yum -y install openssl openssl-devel
+
+./configure
+make
+make install
+
+cd /usr/local/nginx/sbin
+./nginx
+
+如果修改了 Nginx 配置，则可以通过如下命令重新加载 Nginx 配置文件：
+./nginx -s reload

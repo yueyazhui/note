@@ -1,0 +1,10 @@
+[Unit]
+Description=vhr
+After=vhr.service
+[Service]
+Type=forking
+ExecStart=/bin/bash /root/vhr/vhr_start.sh
+# ExecStop=/bin/bash /root/vhr/vhr_stop.sh
+PrivateTmp=true
+[Install]
+WantedBy=multi-user.target

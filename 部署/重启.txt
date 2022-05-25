@@ -1,0 +1,18 @@
+cd /root/vhr
+
+netstat -nlp | grep 9999
+kill -9 [PID]
+netstat -nlp | grep 9998
+kill -9 [PID]
+
+rm -rf consoleMsgVhr.log
+rm -rf consoleMsgMail.log
+touch consoleMsgVhr.log
+touch consoleMsgMail.log
+nohup java -jar vhr-web-0.0.1-SNAPSHOT.war > consoleMsgVhr.log 2>&1 &
+nohup java -jar mail-server-0.0.1-SNAPSHOT.war > consoleMsgMail.log 2>&1 &
+
+FastDFS
+/usr/bin/fdfs_trackerd /etc/fdfs/tracker.conf start
+/usr/bin/fdfs_storaged /etc/fdfs/storage.conf start
+/usr/local/nginx/sbin/nginx
