@@ -1,0 +1,5 @@
+cd /usr/local/
+wget https://releases.hashicorp.com/consul/1.12.2/consul_1.12.2_linux_386.zip
+unzip consul_1.12.2_linux_386.zip
+./consul
+./consul agent -dev -ui -node=consul-dev -client=0.0.0.0

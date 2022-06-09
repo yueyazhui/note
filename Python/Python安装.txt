@@ -1,0 +1,37 @@
+cd /usr/local/
+mkdir python
+cd /python/
+# 解决 db4-devel 安装错误
+wget https://public-yum.oracle.com/public-yum-ol6.repo -O /etc/yum.repos.d/public-yum-ol6.repo
+# 安装依赖包
+yum install -y gcc patch libffi-devel python-devel  zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
+# 下载 python3
+wget https://www.python.org/ftp/python/3.10.5/Python-3.10.5.tgz
+tar -zxvf Python-3.10.5.tgz
+yum install gcc -y
+yum install libffi-devel -y
+cd Python-3.10.5
+# 生成编译脚本(指定安装目录)
+./configure --prefix=/usr/local/python
+# 编译
+make
+# 编译安装
+make install
+# 测试python3.10的编译器是否安装完成
+/usr/local/python/bin/python3.10
+# 建立 Python3 软连接
+ln -s /usr/local/python/bin/python3 /usr/bin/python3
+# 建立pip3软连接
+ln -s /usr/local/python/bin/pip3 /usr/bin/pip3
+# 添加环境变量
+vim /etc/profile
+
+if [ -f ~/.bashrc ]; then
+. ~/.bashrc
+fi
+PATH=$PATH:$HOME/bin:/usr/local/python/bin
+export PATH
+
+source ~/.bash_profile
+python3 -V
+pip3 -V
