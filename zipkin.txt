@@ -1,0 +1,1 @@
+docker run -d -p 9411:9411 --name myzipkin -e ES_HOSTS=47.95.1.150 -e STORAGE_TYPE=elasticsearch -e ES_HTTP_LOGGING=BASIC -e RABBIT_URI=amqp://guest:guest@47.95.1.150:5672 openzipkin/zipkin
